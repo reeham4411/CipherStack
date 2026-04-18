@@ -42,7 +42,7 @@ export default function PipelineCanvas() {
     <Card>
       <SectionTitle
         title="Pipeline Builder"
-        subtitle="Configure, reorder, and manage your encryption flow"
+        subtitle="Drag nodes using the dot handle to reorder the pipeline."
       />
 
       {nodes.length === 0 ? (
