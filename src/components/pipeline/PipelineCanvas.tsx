@@ -12,12 +12,12 @@ export default function PipelineCanvas() {
     <Card>
       <SectionTitle
         title="Pipeline Builder"
-        subtitle="Reorder, configure, and remove nodes"
+        subtitle="Configure, reorder, and manage your encryption flow"
       />
 
       {nodes.length === 0 ? (
-        <div className="rounded-xl border border-dashed border-zinc-700 p-8 text-center text-zinc-400">
-          No nodes added yet. Add at least 3 cipher nodes.
+        <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-10 text-center text-slate-500">
+          No nodes added yet. Start by adding at least 3 cipher nodes.
         </div>
       ) : (
         <div className="space-y-4">

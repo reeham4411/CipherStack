@@ -9,11 +9,11 @@ export default function PipelineStats() {
   const mode = useCipherStore((state) => state.mode);
 
   return (
-    <Card className="flex items-center justify-between">
+    <Card className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <div>
-        <h3 className="font-semibold text-white">Pipeline Status</h3>
-        <p className="text-sm text-zinc-400">
-          Minimum 3 nodes required for valid execution
+        <h3 className="font-semibold text-slate-900">Pipeline Status</h3>
+        <p className="text-sm text-slate-500">
+          At least 3 nodes are required for a valid run
         </p>
       </div>
 

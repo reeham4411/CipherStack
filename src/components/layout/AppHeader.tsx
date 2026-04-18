@@ -1,14 +1,19 @@
 export default function AppHeader() {
   return (
-    <header className="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur">
+    <header className="sticky top-0 z-20 border-b border-white/70 bg-white/75 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <div>
-          <h1 className="text-xl font-bold text-white">CipherStack</h1>
-          <p className="text-sm text-zinc-400">
-            Node-Based Cascade Encryption Builder
+          <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+            CipherStack
+          </h1>
+          <p className="text-sm text-slate-500">
+            Visual cascade encryption studio
           </p>
         </div>
-        {/* <div className="text-sm text-zinc-400">Frontend Hackathon Build</div> */}
+
+        <div className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-600">
+          Node-based pipeline
+        </div>
       </div>
     </header>
   );

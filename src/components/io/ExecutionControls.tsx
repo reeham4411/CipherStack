@@ -15,7 +15,7 @@ export default function ExecutionControls() {
       <div className="flex flex-wrap gap-3">
         <Button onClick={runPipeline}>Run Pipeline</Button>
         <Button variant="secondary" onClick={loadDemoPipeline}>
-          Load Demo 3-Node Pipeline
+          Load Demo Pipeline
         </Button>
         <Button variant="danger" onClick={clearPipeline}>
           Clear Pipeline
@@ -23,7 +23,7 @@ export default function ExecutionControls() {
       </div>
 
       {error ? (
-        <p className="mt-4 rounded-xl border border-red-500/30 bg-red-500/10 px-3 py-2 text-sm text-red-300">
+        <p className="mt-4 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-600">
           {error}
         </p>
       ) : null}

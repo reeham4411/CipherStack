@@ -6,15 +6,15 @@ import SectionTitle from "@/components/ui/SectionTile";
 import { useCipherStore } from "@/store/useCipherStore";
 
 const items = [
-  { type: "caesar", label: "Caesar Cipher", note: "Shift-based, configurable" },
-  { type: "xor", label: "XOR Cipher", note: "Key-based, configurable" },
+  { type: "caesar", label: "Caesar Cipher", note: "Shift-based configuration" },
+  { type: "xor", label: "XOR Cipher", note: "Repeating key configuration" },
   {
     type: "vigenere",
     label: "Vigenère Cipher",
-    note: "Keyword-based, configurable",
+    note: "Keyword-based configuration",
   },
-  { type: "reverse", label: "Reverse", note: "Bonus extra" },
-  { type: "base64", label: "Base64", note: "Bonus extra" },
+  { type: "reverse", label: "Reverse", note: "Simple inversion utility" },
+  { type: "base64", label: "Base64", note: "Encoding / decoding utility" },
 ] as const;
 
 export default function CipherLibrary() {
@@ -24,18 +24,18 @@ export default function CipherLibrary() {
     <Card>
       <SectionTitle
         title="Cipher Library"
-        subtitle="Add ciphers to the pipeline"
+        subtitle="Add algorithms to your pipeline"
       />
 
       <div className="space-y-3">
         {items.map((item) => (
           <div
             key={item.type}
-            className="rounded-xl border border-zinc-800 bg-zinc-950 p-3"
+            className="rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-4"
           >
-            <div className="mb-2">
-              <h3 className="font-medium text-white">{item.label}</h3>
-              <p className="text-xs text-zinc-400">{item.note}</p>
+            <div className="mb-3">
+              <h3 className="font-semibold text-slate-800">{item.label}</h3>
+              <p className="mt-1 text-xs text-slate-500">{item.note}</p>
             </div>
 
             <Button className="w-full" onClick={() => addNode(item.type)}>

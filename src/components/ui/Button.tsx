@@ -13,11 +13,13 @@ export default function Button({
   return (
     <button
       className={cn(
-        "rounded-xl px-4 py-2 text-sm font-semibold transition",
-        variant === "primary" && "bg-blue-600 text-white hover:bg-blue-500",
+        "rounded-2xl px-4 py-2.5 text-sm font-semibold transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50",
+        variant === "primary" &&
+          "bg-slate-900 text-white shadow-sm hover:bg-slate-800",
         variant === "secondary" &&
-          "bg-zinc-800 text-zinc-100 hover:bg-zinc-700 border border-zinc-700",
-        variant === "danger" && "bg-red-600 text-white hover:bg-red-500",
+          "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50",
+        variant === "danger" &&
+          "bg-rose-500 text-white shadow-sm hover:bg-rose-400",
         className,
       )}
       {...props}

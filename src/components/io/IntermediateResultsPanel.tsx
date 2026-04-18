@@ -11,54 +11,52 @@ export default function IntermediateResultsPanel() {
     <Card>
       <SectionTitle
         title="Intermediate Results"
-        subtitle="See what each node received and produced"
+        subtitle="Inspect what each node received and produced"
       />
 
       {!lastExecution || lastExecution.steps.length === 0 ? (
-        <p className="text-sm text-zinc-400">
-          Run the pipeline to inspect step-by-step results.
+        <p className="text-sm text-slate-500">
+          Run the pipeline to view step-by-step transformations.
         </p>
       ) : (
         <div className="space-y-4">
-          {lastExecution.steps.map(
-            (step: NonNullable<typeof lastExecution>["steps"][number]) => (
-              <div
-                key={`${step.nodeId}-${step.stepNumber}`}
-                className="rounded-xl border border-zinc-800 bg-zinc-950 p-4"
-              >
-                <div className="mb-3 flex items-center justify-between">
-                  <div>
-                    <h4 className="font-medium text-white">
-                      Step {step.stepNumber} — {step.nodeLabel}
-                    </h4>
-                    <p className="text-xs text-zinc-400">
-                      {step.direction.toUpperCase()} · {step.nodeType}
-                    </p>
+          {lastExecution.steps.map((step) => (
+            <div
+              key={`${step.nodeId}-${step.stepNumber}`}
+              className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4"
+            >
+              <div className="mb-3 flex items-center justify-between">
+                <div>
+                  <h4 className="font-semibold text-slate-800">
+                    Step {step.stepNumber} — {step.nodeLabel}
+                  </h4>
+                  <p className="text-xs text-slate-500">
+                    {step.direction.toUpperCase()} · {step.nodeType}
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid gap-3 md:grid-cols-2">
+                <div>
+                  <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    Input
+                  </p>
+                  <div className="rounded-xl border border-slate-200 bg-white p-3 text-sm text-slate-700 break-all">
+                    {step.input || "—"}
                   </div>
                 </div>
 
-                <div className="grid gap-3 md:grid-cols-2">
-                  <div>
-                    <p className="mb-1 text-xs font-medium uppercase text-zinc-400">
-                      Input
-                    </p>
-                    <div className="rounded-lg border border-zinc-800 bg-black/30 p-3 text-sm text-zinc-200 break-all">
-                      {step.input || "—"}
-                    </div>
-                  </div>
-
-                  <div>
-                    <p className="mb-1 text-xs font-medium uppercase text-zinc-400">
-                      Output
-                    </p>
-                    <div className="rounded-lg border border-zinc-800 bg-black/30 p-3 text-sm text-zinc-200 break-all">
-                      {step.output || "—"}
-                    </div>
+                <div>
+                  <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    Output
+                  </p>
+                  <div className="rounded-xl border border-slate-200 bg-white p-3 text-sm text-slate-700 break-all">
+                    {step.output || "—"}
                   </div>
                 </div>
               </div>
-            ),
-          )}
+            </div>
+          ))}
         </div>
       )}
     </Card>

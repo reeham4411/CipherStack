@@ -2,6 +2,7 @@
 
 import Card from "@/components/ui/Card";
 import SectionTitle from "@/components/ui/SectionTile";
+import Textarea from "@/components/ui/Textarea";
 import { useCipherStore } from "@/store/useCipherStore";
 
 export default function InputPanel() {
@@ -17,34 +18,33 @@ export default function InputPanel() {
         subtitle="Enter plaintext for encryption or ciphertext for decryption"
       />
 
-      <div className="mb-4 flex gap-2">
+      <div className="mb-4 inline-flex rounded-2xl border border-slate-200 bg-slate-50 p-1">
         <button
           onClick={() => setMode("encrypt")}
-          className={`rounded-xl px-4 py-2 text-sm font-medium ${
+          className={`rounded-xl px-4 py-2 text-sm font-medium transition ${
             mode === "encrypt"
-              ? "bg-blue-600 text-white"
-              : "bg-zinc-800 text-zinc-300"
+              ? "bg-slate-900 text-white shadow-sm"
+              : "text-slate-600"
           }`}
         >
           Encrypt
         </button>
         <button
           onClick={() => setMode("decrypt")}
-          className={`rounded-xl px-4 py-2 text-sm font-medium ${
+          className={`rounded-xl px-4 py-2 text-sm font-medium transition ${
             mode === "decrypt"
-              ? "bg-blue-600 text-white"
-              : "bg-zinc-800 text-zinc-300"
+              ? "bg-slate-900 text-white shadow-sm"
+              : "text-slate-600"
           }`}
         >
           Decrypt
         </button>
       </div>
 
-      <textarea
+      <Textarea
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
         placeholder="Enter your input text here..."
-        className="min-h-40 w-full rounded-xl border border-zinc-700 bg-zinc-900 p-4 text-zinc-100 outline-none placeholder:text-zinc-500 focus:border-blue-600"
       />
     </Card>
   );

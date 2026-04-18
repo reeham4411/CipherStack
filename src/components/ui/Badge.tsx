@@ -1,6 +1,6 @@
 export default function Badge({ text }: { text: string }) {
   return (
-    <span className="inline-flex rounded-full border border-blue-500/30 bg-blue-500/10 px-2.5 py-1 text-xs font-medium text-blue-300">
+    <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700">
       {text}
     </span>
   );

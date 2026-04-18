@@ -3,6 +3,7 @@ import AppShell from "@/components/layout/AppShell";
 import CipherLibrary from "@/components/cipher-library/CipherLibrary";
 import PipelineCanvas from "@/components/pipeline/PipelineCanvas";
 import PipelineStats from "@/components/pipeline/PipelineStats";
+import SecurityMeter from "@/components/pipeline/PipelineSecurityMeter";
 import InputPanel from "@/components/io/InputPanel";
 import OutputPanel from "@/components/io/OutputPanel";
 import IntermediateResultsPanel from "@/components/io/IntermediateResultsPanel";
@@ -10,7 +11,7 @@ import ExecutionControls from "@/components/io/ExecutionControls";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen text-slate-900">
       <AppHeader />
       <AppShell>
         <div className="grid gap-6 lg:grid-cols-[320px_1fr]">
@@ -20,6 +21,7 @@ export default function HomePage() {
 
           <div className="space-y-6">
             <PipelineStats />
+            <SecurityMeter />
             <InputPanel />
             <ExecutionControls />
             <PipelineCanvas />
