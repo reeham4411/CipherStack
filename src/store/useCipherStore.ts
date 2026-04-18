@@ -20,6 +20,7 @@ type CipherStore = {
   removeNode: (id: string) => void;
   moveNodeUp: (id: string) => void;
   moveNodeDown: (id: string) => void;
+  reorderNodes: (activeId: string, overId: string) => void;
   updateNodeConfig: (id: string, key: string, value: string | number) => void;
 
   runPipeline: () => void;
@@ -74,6 +75,22 @@ export const useCipherStore = create<CipherStore>((set, get) => ({
 
       const copy = [...state.nodes];
       [copy[index], copy[index + 1]] = [copy[index + 1], copy[index]];
+      return { nodes: copy };
+    }),
+
+  reorderNodes: (activeId, overId) =>
+    set((state) => {
+      const oldIndex = state.nodes.findIndex((node) => node.id === activeId);
+      const newIndex = state.nodes.findIndex((node) => node.id === overId);
+
+      if (oldIndex === -1 || newIndex === -1 || oldIndex === newIndex) {
+        return state;
+      }
+
+      const copy = [...state.nodes];
+      const [movedItem] = copy.splice(oldIndex, 1);
+      copy.splice(newIndex, 0, movedItem);
+
       return { nodes: copy };
     }),
 
